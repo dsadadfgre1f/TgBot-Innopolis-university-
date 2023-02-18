@@ -54,6 +54,17 @@ Aspirantura = b(Aspir.text, "html.parser")
 asa1 = Aspirantura.find_all("div", class_="useful-links")
 asa_gg1= [c.text for c in asa1]
 
+#СФУ ДОКТОРАНТУРА
+urldok = "https://research.sfu-kras.ru/doktorantura"
+dok = requests.get(urldok)
+dokrantura = b(dok.text, "html.parser")
+dokrantura1 = dokrantura.find_all("div", class_="text")
+dokrantura_gg1= [c.text for c in dokrantura1]
+urldok1 = "https://edu.ru/vuz/card/sibirskij-federalnyj-universitet/contacts"
+dok1 = requests.get(urldok1)
+dokrantura1 = b(dok1.text, "html.parser")
+dokrantura11 = dokrantura1.find_all("div",class_="vz-contact-descr__group")
+dokrantura_gg= [c.text for c in dokrantura11]
 
 
 @bot.message_handler(commands=['start'])
@@ -257,7 +268,8 @@ def bacalavr(message):
             bot.send_message(message.chat.id, "Ищу нужную Вам информацию по теме Докторантуры🔎")
             time.sleep(0.2)
             bot.send_message(message.chat.id, "Вот что удалось найти!")
-            bot.send_message(message.chat.id, fag_gg)
+            bot.send_message(message.chat.id, dokrantura_gg1)
+            
 
 
     if message.chat.type == 'private':
@@ -290,7 +302,7 @@ def bacalavr(message):
             bot.send_message(message.chat.id, "Ищу нужную Вам информацию по теме Контакты Бакалавриата🔎")
             time.sleep(0.2)
             bot.send_message(message.chat.id, "Вот что удалось найти!")
-            bot.send_message(message.chat.id, baka_gg)
+            bot.send_message(message.chat.id, dokrantura_gg)
     if message.chat.type == 'private':
         if message.text == '📞 Аспирантура СФУ':
             bot.send_message(message.chat.id, "Ищу нужную Вам информацию по теме Контакты Магистратуры🔎")
@@ -327,7 +339,7 @@ def bacalavr(message):
     if message.chat.type == 'private':
         if message.text == '⬅ Университеты':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-            button0 = types.KeyboardButton('🎓 Университет Иннополис')
+            button0 = types.KeyboardButton('🎓 СФУ')
             button1 = types.KeyboardButton('😆 Бот дай стикеры')
             button2 = types.KeyboardButton('⬅ Назад к выбору города')
             markup.add(button0, button1, button2)
@@ -335,14 +347,14 @@ def bacalavr(message):
     if message.chat.type == 'private':
         if message.text == '⬅ Назад к меню СФУ':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-            button0 = types.KeyboardButton('📖 Баклавриату Иннополиса')
-            button1 = types.KeyboardButton('🎓 Магистру Иннополиса')
-            button2 = types.KeyboardButton('📃 Аспиранту Иннополиса')
-            button3 = types.KeyboardButton('📞 Контактная информация Иннополиса')
-            button4 = types.KeyboardButton('🌐 Cайт Иннополиса')
-            button5 = types.KeyboardButton('⬅ Университеты Иннополиса')
+            button0 = types.KeyboardButton('📖 Докторантура')
+            button1 = types.KeyboardButton('🎓 Аспирантура')
+            button2 = types.KeyboardButton('📃 Магистратура')
+            button3 = types.KeyboardButton('📞 Контактная информация СФУ')
+            button4 = types.KeyboardButton('🌐 Cайт СФУ')
+            button5 = types.KeyboardButton('⬅ Университеты')
             markup.add(button0, button1, button2, button3, button4, button5)
-            bot.send_message(message.chat.id, "🎓 Университет Иннополис", reply_markup=markup)
+            bot.send_message(message.chat.id, "🎓 СФУ", reply_markup=markup)
 
 
 print("Бот успешно запущен")
