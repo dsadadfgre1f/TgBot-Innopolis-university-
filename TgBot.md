@@ -37,5 +37,4 @@ def lalala(message):
 
 
 
-# RUN
 bot.polling(none_stop=True)
