@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup as b
 import requests
 from telebot import types
 
-TOKEN = "6155737235:AAH17CxzJg7PyyipyJhFcGxzWhIcZBJgiRs"
+TOKEN = ""
 bot = telebot.TeleBot(TOKEN)
 URL = "https://apply.innopolis.university/bachelor/?lang=ru&id=12&site=s1&template=university24&landing_mode=edit"
 r = requests.get(URL)
