@@ -37,6 +37,8 @@ def welcome(message):
     # keyboard
      markup = types.ReplyKeyboardMarkup(resize_keyboard=True) 
      bot.send_message(message.chat.id, "Добро пожаловать, {0.first_name}!\nЯ - <b>{1.first_name}</b>".format(message.from_user, bot.get_me()), parse_mode='html', reply_markup=markup)
+     bot.send_sticker(message.chat.id, 'CAACAgIAAxkBAAIfqmPwkoyskakQaBXCUAd3t8aBelbKAALtKwACv9nZSwJKFa6T4xp7LgQ')
+
 
 @bot.message_handler(content_types=['text'])
 def lalala(message):
@@ -57,6 +59,14 @@ def lalala(message):
         if message.text == 'Структура обучения аспирантуры':
             bot.send_message(message.chat.id, Aspirant_gg)
             bot.send_message(message.chat.id, As_gg)      
+
+
+
+
+
+
+
+
 
 
 
