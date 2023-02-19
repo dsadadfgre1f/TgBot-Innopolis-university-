@@ -15,6 +15,13 @@ fag_gg= [c.text for c in fag]
 baka = bak3.find_all("div", class_="contacts__requisites")
 baka_gg= [c.text for c in baka]
 
+#нгту
+urldok11 = "https://www.nstu.ru/edu/magistracy#"
+dok11 = requests.get(urldok11)
+dokrantura11 = b(dok11.text, "html.parser")
+dokrantura111 = dokrantura11.find_all("div",class_="footer__bottom-wrapper-contacts")
+dokrantura_gg2= [c.text for c in dokrantura111]
+
 #магистрат Иннополис
 UrlMagistrat = "https://apply.innopolis.university/master/datascience/?lang=ru&id=12&site=s1&template=university24&landing_mode=edit"
 rems1 = requests.get(UrlMagistrat)
@@ -163,27 +170,27 @@ def bacalavr(message):
     if message.chat.type == 'private':
         if message.text == '📞 Контактная информация Иннополиса': #Меню контактной информации
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-            button0 = types.KeyboardButton('📞 Бакалавриата Иннополиса')
-            button1 = types.KeyboardButton('📞 Магистратуры Иннополиса')
-            button2 = types.KeyboardButton('📞 Аспирантуры Иннополиса')
+            button0 = types.KeyboardButton('📞 Бакалавриат Иннополиса')
+            button1 = types.KeyboardButton('📞 Магистратура Иннополиса')
+            button2 = types.KeyboardButton('📞 Аспирантура Иннополиса')
             back = types.KeyboardButton('⬅ Назад к меню Иннополиса')
             markup.add(button0, button1, button2, back)
             bot.send_message(message.chat.id, "📞 Контактная информация Иннополиса", reply_markup=markup)
 
     if message.chat.type == 'private': #Кнопки контактной информации
-        if message.text == '📞 Бакалавриата Иннополиса':
+        if message.text == '📞 Бакалавриат Иннополиса':
             bot.send_message(message.chat.id, "Ищу нужную Вам информацию по теме Контакты Бакалавриата🔎")
             time.sleep(0.2)
             bot.send_message(message.chat.id, "Вот что удалось найти!")
             bot.send_message(message.chat.id, baka_gg)
     if message.chat.type == 'private':
-        if message.text == '📞 Магистратуры Иннополиса':
+        if message.text == '📞 Магистратура Иннополиса':
             bot.send_message(message.chat.id, "Ищу нужную Вам информацию по теме Контакты Магистратуры🔎")
             time.sleep(0.2)
             bot.send_message(message.chat.id, "Вот что удалось найти!")
             bot.send_message(message.chat.id, Maga_gg)
     if message.chat.type == 'private':
-        if message.text == '📞 Аспирантуры Иннополиса':
+        if message.text == '📞 Аспирантура Иннополиса':
             bot.send_message(message.chat.id, "Ищу нужную Вам информацию по теме Контакты Аспирантуры🔎")
             time.sleep(0.2)
             bot.send_message(message.chat.id, "Вот что удалось найти!")
@@ -247,12 +254,12 @@ def bacalavr(message):
     if message.chat.type == 'private':
         if message.text == '🎓 СФУ': #Выбор университета
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-            button0 = types.KeyboardButton('📖 Докторантура')
-            button1 = types.KeyboardButton('🎓 Аспирантура')
-            button2 = types.KeyboardButton('📃 Магистратура')
+            button0 = types.KeyboardButton('📖 Докторантура СФУ')
+            button1 = types.KeyboardButton('🎓 Аспирантура СФУ')
+            button2 = types.KeyboardButton('📃 Магистратура СФУ')
             button3 = types.KeyboardButton('📞 Контактная информация СФУ')
             button4 = types.KeyboardButton('🌐 Cайт СФУ')
-            button5 = types.KeyboardButton('⬅ Университеты')
+            button5 = types.KeyboardButton('⬅ Университеты Красноярска')
             markup.add(button0, button1, button2, button3, button4, button5)
             bot.send_message(message.chat.id, "🎓 СФУ", reply_markup=markup)
 
@@ -264,7 +271,7 @@ def bacalavr(message):
             bot.send_message(message.chat.id, "🌐 Основной сайт университета СФУ", reply_markup=markup)
 
     if message.chat.type == 'private':
-        if message.text == '📖 Докторантура': #Кнопка информации
+        if message.text == '📖 Докторантура СФУ': #Кнопка информации
             bot.send_message(message.chat.id, "Ищу нужную Вам информацию по теме Докторантуры🔎")
             time.sleep(0.2)
             bot.send_message(message.chat.id, "Вот что удалось найти!")
@@ -273,7 +280,7 @@ def bacalavr(message):
 
 
     if message.chat.type == 'private':
-        if message.text == '🎓 Аспирантура': #Кнопка информации
+        if message.text == '🎓 Аспирантура СФУ': #Кнопка информации
             bot.send_message(message.chat.id, "Ищу нужную Вам информацию по теме Аспирантуры🔎")
             time.sleep(0.2)
             bot.send_message(message.chat.id, "Вот что удалось найти!")
@@ -281,7 +288,7 @@ def bacalavr(message):
 
 
     if message.chat.type == 'private':
-        if message.text == '📃 Магистратура': #Кнопка информации
+        if message.text == '📃 Магистратура СФУ': #Кнопка информации
             bot.send_message(message.chat.id, "Ищу нужную Вам информацию по теме Магистратуры🔎")
             time.sleep(0.2)
             bot.send_message(message.chat.id, "Вот что удалось найти!")
@@ -293,7 +300,7 @@ def bacalavr(message):
             button0 = types.KeyboardButton('📞 Докторантура СФУ')
             button1 = types.KeyboardButton('📞 Аспирантура СФУ')
             button2 = types.KeyboardButton('📞 Магастратура СФУ')
-            back = types.KeyboardButton('⬅ Университеты')
+            back = types.KeyboardButton('⬅ Назад к меню СФУ')
             markup.add(button0, button1, button2, back)
             bot.send_message(message.chat.id, "📞 Контактная информация СФУ", reply_markup=markup)
 
@@ -317,6 +324,88 @@ def bacalavr(message):
             bot.send_message(message.chat.id, gegeg_gg1)
     #сфу
 
+        # НОВОСИБ всё что под этим комментом только об этом городе, за исключением выходов назад
+        if message.chat.type == 'private':
+            if message.text == '🏙 Новосибирск':  # Выбор города
+                markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+                button0 = types.KeyboardButton('🎓 НГТУ')
+                button1 = types.KeyboardButton('😆 Бот дай стикеры')
+                button2 = types.KeyboardButton('⬅ Назад к выбору города')
+                markup.add(button0, button1, button2)
+                bot.send_message(message.chat.id, "Выберите университет", reply_markup=markup)
+        if message.chat.type == 'private':
+            if message.text == '🎓 НГТУ':  # Выбор университета
+                markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+                button0 = types.KeyboardButton('📖 Докторантура НГТУ')
+                button1 = types.KeyboardButton('🎓 Аспирантура НГТУ')
+                button2 = types.KeyboardButton('📃 Магистратура НГТУ')
+                button3 = types.KeyboardButton('📞 Контактная информация НГТУ')
+                button4 = types.KeyboardButton('🌐 Cайт НГТУ')
+                button5 = types.KeyboardButton('⬅ Университеты Новосибирска')
+                markup.add(button0, button1, button2, button3, button4, button5)
+                bot.send_message(message.chat.id, "🎓 НГТУ", reply_markup=markup)
+
+        if message.chat.type == 'private':
+            if message.text == '🌐 Cайт НГТУ':  # Реализация всплывающей ссылки сайта
+                markup = types.InlineKeyboardMarkup()
+                button1 = types.InlineKeyboardButton("🌐 Cайт НГТУ", url='https://www.nstu.ru/')
+                markup.add(button1)
+                bot.send_message(message.chat.id, "🌐 Основной сайт университета НГТУ", reply_markup=markup)
+
+        if message.chat.type == 'private':
+            if message.text == '📖 Докторантура НГТУ':  # Кнопка информации
+                bot.send_message(message.chat.id, "Ищу нужную Вам информацию по теме Докторантуры🔎")
+                time.sleep(0.2)
+                bot.send_message(message.chat.id, "Вот что удалось найти!")
+                bot.send_message(message.chat.id, dokrantura_gg1)
+
+        if message.chat.type == 'private':
+            if message.text == '🎓 Аспирантура НГТУ':  # Кнопка информации
+                bot.send_message(message.chat.id, "Ищу нужную Вам информацию по теме Аспирантуры🔎")
+                time.sleep(0.2)
+                bot.send_message(message.chat.id, "Вот что удалось найти!")
+                bot.send_message(message.chat.id,
+                                 "Аспирантура является основной формой подготовки кадров высшей квалификации для работы в сфере образования, науки, высоких технологий и других видов интеллектуальной деятельности.Сибирский федеральный университет осуществляет подготовку научных и научно-педагогических кадров в аспирантуре по 26 группам научных специальностей и 115 программам аспирантуры, в аспирантуре обучается более 700 аспирантов. Научное руководство аспирантами в СФУ осуществляют свыше 350 учёных, действуют 15 диссертационных советов.Подготовка аспирантов, зачисленных в аспирантуру до 2022 года, осуществляется в соответствии с Федеральными государственными образовательными стандартами (ФГОС).С 2022 года аспирантура перешла на принципиально новый формат. Набор 2022 года проведен в соответствии с новой номенклатурой научных специальностей. Обучение осуществляется по Федеральными государственными требованиями (ФГТ). Переход на ФГТ подразумевает сокращение образовательной компоненты и смещение фокуса на научную компоненту.Также подготовка диссертационной работы может осуществляться в рамках прикрепления для подготовки диссертации на соискание ученой степени кандидата наук без освоения программ аспирантуры. Прикрепление для выполнения работы осуществляется на срок до 3 лет.")
+
+        if message.chat.type == 'private':
+            if message.text == '📃 Магистратура НГТУ':  # Кнопка информации
+                bot.send_message(message.chat.id, "Ищу нужную Вам информацию по теме Магистратуры🔎")
+                time.sleep(0.2)
+                bot.send_message(message.chat.id, "Вот что удалось найти!")
+                bot.send_message(message.chat.id, gegeg_gg)
+
+        if message.chat.type == 'private':
+            if message.text == '📞 Контактная информация НГТУ':  # Меню контактной информации
+                markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+                button0 = types.KeyboardButton('📞 Докторантура НГТУ')
+                button1 = types.KeyboardButton('📞 Аспирантура НГТУ')
+                button2 = types.KeyboardButton('📞 Магастратура НГТУ')
+                back = types.KeyboardButton('⬅ Назад к меню НГТУ')
+                markup.add(button0, button1, button2, back)
+                bot.send_message(message.chat.id, "📞 Контактная информация НГТУ", reply_markup=markup)
+
+        if message.chat.type == 'private':  # Кнопки контактной информации
+            if message.text == '📞 Докторантура НГТУ':
+                bot.send_message(message.chat.id, "Ищу нужную Вам информацию по теме Контакты Бакалавриата🔎")
+                time.sleep(0.2)
+                bot.send_message(message.chat.id, "Вот что удалось найти!")
+                bot.send_message(message.chat.id, dokrantura_gg2)
+        if message.chat.type == 'private':
+            if message.text == '📞 Аспирантура НГТУ':
+                bot.send_message(message.chat.id, "Ищу нужную Вам информацию по теме Контакты Магистратуры🔎")
+                time.sleep(0.2)
+                bot.send_message(message.chat.id, "Вот что удалось найти!")
+                bot.send_message(message.chat.id, dokrantura_gg2)
+        if message.chat.type == 'private':
+            if message.text == '📞 Магастратура НГТУ':
+                bot.send_message(message.chat.id, "Ищу нужную Вам информацию по теме Контакты Аспирантуры🔎")
+                time.sleep(0.2)
+                bot.send_message(message.chat.id, "Вот что удалось найти!")
+                bot.send_message(message.chat.id, dokrantura_gg2)
+
+
+        # НОВОСИБ
+
 
 
 
@@ -336,7 +425,7 @@ def bacalavr(message):
             back = types.KeyboardButton('⬅ Назад к меню')
             markup.add(button0, button1, button2, back)
     if message.chat.type == 'private':
-        if message.text == '⬅ Университеты':
+        if message.text == '⬅ Университеты Красноярска':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
             button0 = types.KeyboardButton('🎓 СФУ')
             button1 = types.KeyboardButton('😆 Бот дай стикеры')
@@ -346,15 +435,36 @@ def bacalavr(message):
     if message.chat.type == 'private':
         if message.text == '⬅ Назад к меню СФУ':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-            button0 = types.KeyboardButton('📖 Докторантура')
-            button1 = types.KeyboardButton('🎓 Аспирантура')
-            button2 = types.KeyboardButton('📃 Магистратура')
+            button0 = types.KeyboardButton('📖 Докторантура СФУ')
+            button1 = types.KeyboardButton('🎓 Аспирантура СФУ')
+            button2 = types.KeyboardButton('📃 Магистратура СФУ')
             button3 = types.KeyboardButton('📞 Контактная информация СФУ')
             button4 = types.KeyboardButton('🌐 Cайт СФУ')
-            button5 = types.KeyboardButton('⬅ Университеты')
+            button5 = types.KeyboardButton('⬅ Университеты Красноярска')
             markup.add(button0, button1, button2, button3, button4, button5)
             bot.send_message(message.chat.id, "🎓 СФУ", reply_markup=markup)
 
 
-print("Бот успешно запущен")
+    if message.chat.type == 'private':
+        if message.text == '⬅ Университеты Новосибирска':
+            markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+            button0 = types.KeyboardButton('🎓 НГТУ')
+            button1 = types.KeyboardButton('😆 Бот дай стикеры')
+            button2 = types.KeyboardButton('⬅ Назад к выбору города')
+            markup.add(button0, button1, button2)
+            bot.send_message(message.chat.id, "Выберите университет", reply_markup=markup)
+
+    if message.chat.type == 'private':
+        if message.text == '⬅ Назад к меню НГТУ':
+            markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+            button0 = types.KeyboardButton('📖 Докторантура НГТУ')
+            button1 = types.KeyboardButton('🎓 Аспирантура НГТУ')
+            button2 = types.KeyboardButton('📃 Магистратура НГТУ')
+            button3 = types.KeyboardButton('📞 Контактная информация НГТУ')
+            button4 = types.KeyboardButton('🌐 Cайт НГТУ')
+            button5 = types.KeyboardButton('⬅ Университеты Новосибирска')
+            markup.add(button0, button1, button2, button3, button4, button5)
+            bot.send_message(message.chat.id, "🎓 НГТУ", reply_markup=markup)
+
+print("Бот стартанул")
 bot.polling(none_stop=True)
