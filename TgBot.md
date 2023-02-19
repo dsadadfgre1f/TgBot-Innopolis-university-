@@ -10,7 +10,7 @@ bot = telebot.TeleBot(TOKEN)
 UrlBacalawr = "https://apply.innopolis.university/bachelor/?lang=ru&id=12&site=s1&template=university24&landing_mode=edit"
 r = requests.get(UrlBacalawr)
 bak3 = b(r.text, "html.parser")
-fag = bak3.find_all("div", class_="learning-program top-left learning-program_no-padding")
+fag = bak3.find_all("div", class_="block-wrapper block-columns-bachelor-page-lp")
 fag_gg= [c.text for c in fag]
 baka = bak3.find_all("div", class_="contacts__requisites")
 baka_gg= [c.text for c in baka]
@@ -19,7 +19,7 @@ baka_gg= [c.text for c in baka]
 UrlMagistrat = "https://apply.innopolis.university/master/datascience/?lang=ru&id=12&site=s1&template=university24&landing_mode=edit"
 rems1 = requests.get(UrlMagistrat)
 bak2 = b(rems1.text, "html.parser")
-Mag = bak2.find_all("div", class_="learning-program top-left learning-program_no-padding")
+Mag = bak2.find_all("div", class_="learning-programs-wrap")
 Mag_gg= [c.text for c in Mag]
 Maga = bak2.find_all("div" , class_="contacts__requisites")
 Maga_gg= [c.text for c in Maga]
@@ -335,7 +335,6 @@ def bacalavr(message):
             button2 = types.KeyboardButton('🏙 Новосибирск')
             back = types.KeyboardButton('⬅ Назад к меню')
             markup.add(button0, button1, button2, back)
-            bot.send_message(message.chat.id, "🏙️ Выбрать город вуза", reply_markup=markup)
     if message.chat.type == 'private':
         if message.text == '⬅ Университеты':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
